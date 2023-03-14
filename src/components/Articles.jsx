@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import { getArticles } from "../api";
 
-const ArticleList = () => {
+const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const [isLoading, SetIsLoading] = useState(true)
+  const [isLoading, SetIsLoading] = useState(true);
 
   useEffect(() => {
-    getArticles()
-      .then((data) => {
-        setArticles(data);
-        SetIsLoading(false)
-      });
+    getArticles().then((data) => {
+      setArticles(data);
+      SetIsLoading(false);
+    });
   }, []);
 
   return (
@@ -21,15 +20,17 @@ const ArticleList = () => {
         <ul>
           {articles.map((article) => (
             <li key={article.article_id}>
-              <p>{article.title}:</p>
-              <p>{article.author}</p>
-              <p>{article.created_at}:</p>
+              <h2>{article.title}</h2>
+              <p>
+                By {article.author} on {article.created_at}
+              </p>
+              <p>{article.body}</p>
             </li>
           ))}
         </ul>
       )}
     </div>
-  )}
-  
+  );
+};
 
-export default ArticleList
+export default Articles;
