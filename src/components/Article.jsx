@@ -5,13 +5,13 @@ import { getArticle } from "../api";
 const Article = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState();
-  const [isLoading, SetIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    SetIsLoading(true)
+    setIsLoading(true)
     getArticle(article_id).then((data) => {
       setArticle(data);
-      SetIsLoading(false);
+      setIsLoading(false);
     });
   }, [article_id]);
 
@@ -26,7 +26,7 @@ const Article = () => {
             <p>
               By {article.author} on {article.created_at}
             </p>
-            <img src={article.article_img_url} alt="Article Image" />
+            <img src={article.article_img_url} alt="Article" />
             <p>{article.body}</p>
           </li>
         </ul>
