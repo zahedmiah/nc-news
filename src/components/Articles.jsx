@@ -4,12 +4,12 @@ import { getArticles } from "../api";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const [isLoading, SetIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getArticles().then((data) => {
       setArticles(data);
-      SetIsLoading(false);
+      setIsLoading(false);
     });
   }, []);
 
