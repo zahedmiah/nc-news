@@ -10,7 +10,6 @@ const ArticleComments = () => {
   useEffect(() => {
     SetIsLoading(true)
     getArticleComments(article_id).then((data) => {
-      console.log("data:", data);
       setComments(data);
       SetIsLoading(false);
     });
