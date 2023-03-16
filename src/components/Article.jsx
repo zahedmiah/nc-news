@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticle } from "../api";
+import ArticleComments from "./ArticleComments";
 
 const Article = () => {
   const { article_id } = useParams();
@@ -20,6 +21,7 @@ const Article = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
+        <>
         <ul>
           <li key={article.article_id}>
             <h2>{article.title}</h2>
@@ -30,6 +32,8 @@ const Article = () => {
             <p>{article.body}</p>
           </li>
         </ul>
+        <ArticleComments article_id={article_id} />
+        </>
       )}
     </div>
   );
