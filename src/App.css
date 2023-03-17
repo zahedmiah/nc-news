@@ -18,13 +18,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.Articles ul {
+.Article ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.Articles li {
+.Article li {
   padding: 10px;
   background-color: #fff;
   border-radius: 5px;
@@ -34,7 +34,30 @@
   justify-content: space-between;
 }
 
-.Articles a {
+.Article a {
   color: #0077cc;
   text-decoration: none;
 }
+
+.ArticleComments ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ArticleComments li {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ArticleComments a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+
