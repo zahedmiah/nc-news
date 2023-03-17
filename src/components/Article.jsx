@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getArticle, voteForArticle } from "../api";
 import ArticleComments from "./ArticleComments";
+import CommentAdder from "./CommentAdder";
 
 const Article = () => {
   const { article_id } = useParams();
@@ -9,6 +10,7 @@ const Article = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [userVote, setUserVote] = useState(0);
   const [isVotingErr, setIsVotingErr] = useState(false);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -56,7 +58,8 @@ const Article = () => {
               {isVotingErr && <p>Unable to vote!</p>}
             </li>
           </ul>
-          <ArticleComments article_id={article_id} />
+          <CommentAdder article_id={article_id} setComments={setComments} />
+          <ArticleComments article_id={article_id} setComments={setComments} />
         </>
       )}
     </div>

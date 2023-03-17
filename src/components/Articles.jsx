@@ -25,9 +25,9 @@ const Articles = () => {
               <h2>{article.title}</h2>
               </Link>
               <p>Topic: {article.topic}</p>
-              <p>
-                By {article.author} on {article.created_at}
-              </p>
+              <p>By {article.author} on {new Date(article.created_at).toLocaleDateString()}</p>
+              <p>Votes: {article.votes} - Comments: {article.comment_count}</p>
+              <img src={article.article_img_url} alt={article.title} />
               <p>{article.body}</p>
             </li>
           ))}
